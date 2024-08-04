@@ -1,29 +1,35 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void binarySearch(int[] a, int t) {
-        int n = a.length;
-        int first = -1;
-        int last = -1;
-        for(int i = 0; i < n; i++) {
-            if (t != a[i])
-                continue;
-            if (first == -1)
-                first = i;
-            last = i;
+    public static int BinarySearch(int[] arr,int n){
+        int start=0;
+        int end= arr.length-1;
+        int mid;
+        while(start<=end){
+            mid=(start+end)/2;
+            if(n==arr[mid]){
+                if(arr[mid]-1==n){
+                    end=mid;
+                    continue;
+                }
+                else{
+                    return mid;
+                }
+            }
+            if(n<arr[mid]){
+                end=mid-1;
+            }
+            else{
+                start=mid+1;
+            }
         }
-        if (first != -1) {
-            System.out.println("First Occurrence = "
-                    + first);
-            System.out.println("Last Occurrence = " + last);
-        } else {
-            System.out.println("Not Found");
-        }
+        return -1;
     }
+
     public static void main(String[] args) {
-        int[] a = {1, 2, 3, 4, 4, 5, 6, 7};
-        int ta = 4;
-        binarySearch(a,ta);
+        int[] arr={1,1,2,3,3,3,3,4,5};
+        int n=3;
+        System.out.println(BinarySearch(arr,3));
+
     }
 }
-

@@ -12,7 +12,7 @@ public class Main {
 
 
             } else if (t< arr[mid]) {
-                end=mid-1;
+                start=mid+1;
             } else {
                 start = mid +1;
             }
